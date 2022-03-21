@@ -1,0 +1,80 @@
+<body>
+    <h5 style="background:#302ea3; color:white; padding:10px 20px; text-align:left;">ADD AIRLINE</h5>
+    <div>
+        <div>
+            <div class="container">
+                <div class="row mb-3">
+                    <label for="name"> Enter Airline Name: </label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" style="text-align:center;" [(ngModel)]="airline.name">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="number"> Enter Airline Number: </label>
+                    <div class="col-sm-4">
+                        <input type="number" class="form-control" [(ngModel)]="airline.number">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="block">isblocked?(true/false): </label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" [(ngModel)]="airline.isblocked">
+                    </div>
+                </div>
+                <button (click)='save()' class="btn btn-success">Save</button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <h5 style="background:#302ea3; color:white; padding:10px 20px; text-align:left;">DISPLAY AIRLINES</h5>
+    <br>
+    <br>
+    <button (click)='displayAirlines()' class="btn btn-success">Click here to Disply all Airlines</button>
+    <br>
+    <br>
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th>Number</th>
+                <th>Name</th>
+                <th>isBlocked</th>
+            </tr>
+            <tr *ngFor="let display of displayAirline">
+                <td>
+                    {{display.number}}
+                </td>
+                <td>
+                    {{display.name}}
+                </td>
+                <td>
+                    {{display.isblocked}}
+                </td>
+                <td>
+                    <button (click)='block(display.number)' class="btn btn-primary">Block</button>
+                </td>
+                <td>
+                    <button (click)='unBlock(display.number)' class="btn btn-primary">UnBlock</button>
+                </td>
+                <td>
+                    <button (click)='delete(display.number)' class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <br>
+</body>
+<!-- <div>
+    <h5 style="background:#302ea3; color:white; padding:10px 20px; text-align:left;">BLOCK AIRLINE</h5>
+
+    <div class="container">
+        <div class="row mb-3">
+            <label for="name"> Enter Airline Number: </label>
+            <div class="col-sm-4">
+                <input type="number" class="form-control" style="text-align:center;" [(ngModel)]="blockairline.number">
+            </div>
+        </div>
+        <button (click)='block()' class="btn btn-primary">Block</button>
+    </div>
+</div> -->

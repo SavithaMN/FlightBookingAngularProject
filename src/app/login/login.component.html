@@ -1,0 +1,21 @@
+<body>
+    <div>
+        <div>
+            <div class="container">
+                <div class="row mb-3">
+                    <label for="name">User Name:</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" style="text-align:center;" [(ngModel)]="login.name">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="block">Password: </label>
+                    <div class="col-sm-4">
+                        <input type="password" class="form-control" [(ngModel)]="login.password">
+                    </div>
+                </div>
+                <button (click)='Login()' class="btn btn-success">Login</button>
+            </div>
+        </div>
+    </div>
+</body>

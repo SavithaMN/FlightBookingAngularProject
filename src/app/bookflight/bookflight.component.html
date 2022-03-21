@@ -1,0 +1,54 @@
+<body>
+  <div class="container">
+    <div class="row mb-3">
+      <label>Email</label>
+      <div class="col-sm-4">
+        <input type="text" class="textbox" [(ngModel)]="flightBookSinglePassenger.email">
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label>Seat Number</label>
+      <div class="col-sm-4">
+        <input type="number" class="textbox" [(ngModel)]="flightBookSinglePassenger.seatnumber">
+      </div>
+    </div>
+    <h6>Passenger details</h6>
+    <div class="row mb-3">
+      <label>Name</label>
+      <div class="col-sm-4">
+        <input type="text" class="textbox" [(ngModel)]="flightBookSinglePassenger.name">
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label>Age</label>
+      <div class="col-sm-4">
+        <input type="number" class="textbox" [(ngModel)]="flightBookSinglePassenger.age">
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label>Gender</label>
+      <div class="col-sm-4">
+        <input type="radio" value="male" name="gender" [(ngModel)]="flightBookSinglePassenger.gender"> Male
+        <input type="radio" value="female" name="gender" [(ngModel)]="flightBookSinglePassenger.gender"> Female
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label>Meal</label>
+      <div class="col-sm-4">
+        <input type="radio" value="Veg" name="meal" [(ngModel)]="flightBookSinglePassenger.meal"> Veg
+        <input type="radio" value="NonVeg" name="meal" [(ngModel)]="flightBookSinglePassenger.meal"> NonVeg
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label>Price</label>
+      <div class="col-sm-4">
+        <input type="text" class="textbox" [(ngModel)]="flightBookSinglePassenger.price" disabled>
+      </div>
+    </div>
+    <br>
+    <br>
+    <button class="btn btn-primary" (click)="bookFlight()">BOOK</button>
+    <br>
+    <br>
+  </div>
+</body>

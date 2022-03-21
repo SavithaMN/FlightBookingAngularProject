@@ -1,0 +1,15 @@
+body{
+    background-color: grey;
+    background-image: url(http://www.wallpapers4u.org/wp-content/uploads/flight_plane_sky_color_line_61872_1920x1080.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height:
+  113vh
+  ;
+  text-align: 40px;
+  }
+  .align{
+    margin-left: -80px;
+    font-weight: 700;
+  }

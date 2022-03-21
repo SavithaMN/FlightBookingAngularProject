@@ -1,0 +1,15 @@
+<div style="margin-right: 70px;float: right;padding: 25px;">
+  <!-- <a style="cursor: pointer;color:#0d6efd" (click)="logout()">Admin Logout</a> -->
+  <button class="btn btn-primary" (click)="logout()">Admin Logout</button>
+</div>
+<div>
+  <ul>
+    <li routerLinkActive="active">
+      <a [routerLink]="['./airline']">AIRLINES</a>
+    </li>
+    <li routerLinkActive="active">
+      <a [routerLink]="['./flight']">FLIGHTS</a>
+    </li>
+  </ul>
+  <router-outlet></router-outlet>
+</div>

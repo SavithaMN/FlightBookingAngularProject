@@ -1,0 +1,126 @@
+<body>
+  <div style="float: right;">
+    <button class="btn btn-primary" (click)="userlogout()">Logout</button>
+  </div>
+  <div class="container">
+    <div class="mb-3" style="margin-left: 15em;">
+      <input type="radio" value="onewayTrip" name="way" [(ngModel)]="searchFlightDetails.flightWayMode"> One trip
+      <input type="radio" value="roundTrip" name="way" [(ngModel)]="searchFlightDetails.flightWayMode"> Round trip
+    </div>
+    <div class="align">
+      <label>From Place</label>
+      <input type="text" class="textbox" [(ngModel)]="searchFlightDetails.fromPlace">
+      <label>To Place</label>
+      <input type="text" class="textbox" [(ngModel)]="searchFlightDetails.toPlace">
+      <label>Start Date</label>
+      <input type="datetime-local" class="textbox" [(ngModel)]="searchFlightDetails.startDateTime">
+      <label *ngIf="searchFlightDetails.flightWayMode == 'roundTrip'">Return Date</label>
+      <input *ngIf="searchFlightDetails.flightWayMode == 'roundTrip'" type="datetime-local" class="textbox"
+        [(ngModel)]="searchFlightDetails.endDateTime">
+      <br>
+      <br>
+      <button class="btn btn-primary" (click)="searchFlight()">Search Flight</button>
+      <br>
+      <br>
+    </div>
+
+    <!-- // <div *ngIf="flightDetailsData.length == 0"><h4>No flights are available</h4></div> -->
+
+  </div>
+  <div *ngIf="displayFlights != null">
+    <div *ngIf="displayFlights.length > 0">
+
+      <h6 style="background:#302ea3; color:white; padding:5px 10px; text-align:left;">Depart flights</h6>
+      <!-- <div class="table-responsive"></div> -->
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <th></th>
+            <th>FlightNumber</th>
+            <th>FromPlace</th>
+            <th>ToPlace</th>
+            <th>StartDateTime</th>
+            <th>Price</th>
+          </tr>
+          <tr *ngFor="let display of displayFlights">
+            <td>
+              <input (click)="evtSelectItemDeparture(display)" name="Depart" type="checkbox"
+                [(ngModel)]="display.isSelected"> &nbsp; &nbsp;
+            </td>
+            <td>
+              {{display.number}}
+            </td>
+            <td>
+              {{display.fromPlace}}
+            </td>
+            <td>
+              {{display.toPlace}}
+            </td>
+            <td>
+              {{display.startDateTime}}
+            </td>
+            <td>
+              {{display.price}}
+            </td>
+            <!-- <td>
+            <button class="btn btn-primary" (click)="bookFlight(display.number,display.price)">Book</button>
+          </td> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- </div> -->
+  <div *ngIf="displayReturnFlights != null">
+    <div *ngIf="displayReturnFlights.length > 0">
+      <!-- <div class="table-responsive"> -->
+      <h6 style="background:#302ea3; color:white; padding:5px 10px; text-align:left;">Return flights</h6>
+      <!-- <div class="table-responsive"> -->
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <th></th>
+            <th>FlightNumber</th>
+            <th>FromPlace</th>
+            <th>ToPlace</th>
+            <th>StartDateTime</th>
+            <th>Price</th>
+          </tr>
+          <tr *ngFor="let display of displayReturnFlights">
+            <td>
+              <input (click)="evtSelectItemReturn(display)" name="Return" type="checkbox"
+                [(ngModel)]="display.isSelected"> &nbsp; &nbsp;
+            </td>
+            <td>
+              {{display.number}}
+            </td>
+            <td>
+              {{display.fromPlace}}
+            </td>
+            <td>
+              {{display.toPlace}}
+            </td>
+            <td>
+              {{display.startDateTime}}
+            </td>
+            <td>
+              {{display.price}}
+            </td>
+            <!-- <td>
+            <button class="btn btn-primary" (click)="bookFlight(display.number,display.price)">Book</button>
+          </td> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- </div> -->
+  <div>
+    <span *ngIf="TotalAmount > 0">Total Price : </span> <b *ngIf="TotalAmount > 0"> {{TotalAmount}} </b> &nbsp;&nbsp;
+    <button *ngIf="TotalAmount > 0" class="btn btn-primary" (click)="bookFlight()">Book</button>
+    <!-- <button class="btn btn-primary" (click)="triggerModal(modalData)">Add User</button> -->
+    <br>
+    <br>
+    <br>
+  </div>
+</body>
